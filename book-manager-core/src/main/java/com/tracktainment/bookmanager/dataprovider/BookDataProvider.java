@@ -13,8 +13,6 @@ public interface BookDataProvider {
 
     Book findById(String id);
 
-    Book findByTitle(String title);
-
     List<Book> listByCriteria(ListByCriteriaUseCase.Input input);
 
     Book update(String id, BookUpdate bookUpdate);

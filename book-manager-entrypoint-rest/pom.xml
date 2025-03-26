@@ -34,13 +34,6 @@
 		</dependency>
 
 		<!-- external dependencies -->
-
-		<!-- JWT validation -->
-		<dependency>
-			<groupId>org.bitbucket.b_c</groupId>
-			<artifactId>jose4j</artifactId>
-			<version>${jose4j.version}</version>
-		</dependency>
 	</dependencies>
 
 	<!-- #########################################################################  -->

@@ -22,13 +22,12 @@ public class Constants {
 
 
     // Regex
-    public static final String ID_REGEX = "^-?\\d{1,19}$";
+    public static final String ID_REGEX = "^\\d{1,19}$";
     public static final String TITLE_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?()&]{1,200}$";
-    public static final String AUTHOR_REGEX = "^[A-Za-z\\\\s\\\\-,\\\\.\\\\'\\\\\\\";!?&]{1,100}$";
-    public static final String ISBN_REGEX =
-            "^(?:\\d{3}[-\\s]?)?(\\d{1,5}[-\\s]?)?\\d{1,7}[-\\s]?\\d{1,7}[-\\s]?\\d{1,7}[-\\s]?(\\d{1})$";
-    public static final String PUBLISHER_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?&()]+.{1,150}$";
-    public static final String LANGUAGE_REGEX = "^[A-Za-z\\s\\-\\']{1,50}$";
+    public static final String AUTHOR_REGEX = "^[\\p{L}\\s\\-,\\.\\'\\\";!?&]{1,100}$";
+    public static final String ISBN_REGEX = "^(97[89]-?)?\\d{1,5}-?\\d{1,7}-?\\d{1,7}-?[\\dX]$";
+    public static final String PUBLISHER_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?&()]{1,150}$";
+    public static final String LANGUAGE_REGEX = "^[\\p{L}\\s\\-']{1,50}$";
 
 
     // Fields validation

@@ -34,7 +34,7 @@ public interface BookRestApi {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ResponseEntity<Book> findById(
-            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) Long id
+            @PathVariable @Min(1) Long id
     );
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -84,12 +84,12 @@ public interface BookRestApi {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ResponseEntity<Book> update(
-            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) Long id,
+            @PathVariable @Min(1) Long id,
             @RequestBody @Valid BookUpdate bookUpdate
     );
 
     @DeleteMapping(path = "/{id}")
     ResponseEntity<Void> delete(
-            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) Long id
+            @PathVariable @Min(1) Long id
     );
 }

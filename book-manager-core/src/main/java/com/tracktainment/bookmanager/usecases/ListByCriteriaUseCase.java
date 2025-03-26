@@ -20,13 +20,22 @@ public class ListByCriteriaUseCase {
     private final BookDataProvider bookDataProvider;
 
     public Output execute(Input input) {
-        // Input treatment
+        inputTreatment(input);
+        inputValidation(input);
+
+        return Output.builder()
+                .books(bookDataProvider.listByCriteria(input))
+                .build();
+    }
+
+    private void inputTreatment(Input input) {
         if (input.getCreatedAt() != null) {
             input.setFrom(null);
             input.setTo(null);
         }
+    }
 
-        // Input validation
+    private void inputValidation(Input input) {
         if (input.getTo() != null && input.getFrom() != null && input.getTo().isBefore(input.getFrom())) {
             throw new ParameterValidationFailedException("Invalid dates input: 'to' must be 'later' than from");
         }
@@ -39,11 +48,6 @@ public class ListByCriteriaUseCase {
                     input.getOrderDirectionList().size()
             ));
         }
-
-        // Method logic
-        return Output.builder()
-                .books(bookDataProvider.listByCriteria(input))
-                .build();
     }
 
     @AllArgsConstructor

@@ -101,46 +101,45 @@ public class BookDataProviderSql implements BookDataProvider {
             CriteriaBuilder criteriaBuilder,
             Root<BookEntity> root, ListByCriteriaUseCase.Input input
     ) {
-        Predicate[] predicates = new Predicate[10];
-        int index = 0;
+        List<Predicate> predicates = new ArrayList<>();
 
         if (input.getTitle() != null) {
-            predicates[index++] = criteriaBuilder.like(root.get("title"), "%" + input.getTitle() + "%");
+            predicates.add(criteriaBuilder.like(root.get("title"), "%" + input.getTitle() + "%"));
         }
 
         if (input.getAuthor() != null) {
-            predicates[index++] = criteriaBuilder.like(root.get("author"), "%" + input.getAuthor() + "%");
+            predicates.add(criteriaBuilder.like(root.get("author"), "%" + input.getAuthor() + "%"));
         }
 
         if (input.getIsbn() != null) {
-            predicates[index++] = criteriaBuilder.like(root.get("isbn"), "%" + input.getIsbn() + "%");
+            predicates.add(criteriaBuilder.like(root.get("isbn"), "%" + input.getIsbn() + "%"));
         }
 
         if (input.getPublisher() != null) {
-            predicates[index++] = criteriaBuilder.like(root.get("publisher"), "%" + input.getPublisher() + "%");
+            predicates.add(criteriaBuilder.like(root.get("publisher"), "%" + input.getPublisher() + "%"));
         }
 
         if (input.getPublishedDate() != null) {
-            predicates[index++] = criteriaBuilder.equal(root.get("publishedDate"),input.getPublishedDate());
+            predicates.add(criteriaBuilder.equal(root.get("publishedDate"),input.getPublishedDate()));
         }
 
         if (input.getLanguage() != null) {
-            predicates[index++] = criteriaBuilder.like(root.get("language"), "%" + input.getLanguage() + "%");
+            predicates.add(criteriaBuilder.like(root.get("language"), "%" + input.getLanguage() + "%"));
         }
 
         if (input.getFrom() != null) {
-            predicates[index++] = criteriaBuilder.greaterThanOrEqualTo(root.get("createdAt"), input.getCreatedAt());
+            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("createdAt"), input.getCreatedAt()));
         }
 
         if (input.getTo() != null) {
-            predicates[index++] = criteriaBuilder.lessThanOrEqualTo(root.get("createdAt"), input.getCreatedAt());
+            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("createdAt"), input.getCreatedAt()));
         }
 
         if (input.getCreatedAt() != null) {
-            predicates[index] = criteriaBuilder.equal(root.get("createdAt"), input.getCreatedAt());
+            predicates.add(criteriaBuilder.equal(root.get("createdAt"), input.getCreatedAt()));
         }
 
-        return predicates;
+        return predicates.toArray(new Predicate[0]);
     }
 
     private void applyListSorting(

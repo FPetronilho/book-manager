@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-application/src/main/resources/application-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-application/src/main/resources/application-local.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-application/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-application/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/ListByCriteriaUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/ListByCriteriaUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/entity/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

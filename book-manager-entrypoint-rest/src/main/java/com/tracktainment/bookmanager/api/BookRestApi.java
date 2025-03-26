@@ -75,7 +75,7 @@ public interface BookRestApi {
 
             @RequestParam(required = false, defaultValue = Constants.DEFAULT_ORDER) List<OrderBy> orderByList,
 
-            @RequestParam(required = false, defaultValue = Constants.DEFAULT_ORDER) List<OrderDirection> orderDirectionList
+            @RequestParam(required = false, defaultValue = Constants.DEFAULT_DIRECTION) List<OrderDirection> orderDirectionList
     );
 
     @PatchMapping(

@@ -21,6 +21,6 @@ public class DeleteUseCase {
     @Data
     @Builder
     public static class Input {
-        private String id;
+        private Long id;
     }
 }

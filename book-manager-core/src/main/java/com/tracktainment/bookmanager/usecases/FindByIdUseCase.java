@@ -24,7 +24,7 @@ public class FindByIdUseCase {
     @Data
     @Builder
     public static class Input {
-        private String id;
+        private Long id;
     }
 
     @AllArgsConstructor

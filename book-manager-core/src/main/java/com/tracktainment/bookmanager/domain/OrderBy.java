@@ -9,7 +9,8 @@ import lombok.ToString;
 @RequiredArgsConstructor
 public enum OrderBy {
 
-    ALPHABETICALLY_TITLE("alphabetically"),
+    TITLE("alphabetically"),
+    AUTHOR("author"),
     CREATED_AT("created");
 
     private final String value;

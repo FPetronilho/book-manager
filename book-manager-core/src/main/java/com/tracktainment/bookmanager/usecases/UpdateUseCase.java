@@ -28,7 +28,7 @@ public class UpdateUseCase {
     @Data
     @Builder
     public static class Input {
-        private String id;
+        private Long id;
         private BookUpdate bookUpdate;
     }
 

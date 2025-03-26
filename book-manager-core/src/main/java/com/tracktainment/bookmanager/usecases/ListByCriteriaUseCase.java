@@ -32,6 +32,7 @@ public class ListByCriteriaUseCase {
     public static class Input {
         private Integer offset;
         private Integer limit;
+        private String title;
         private String author;
         private String isbn;
         private String publisher;

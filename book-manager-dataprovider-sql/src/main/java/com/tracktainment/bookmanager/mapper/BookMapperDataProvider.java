@@ -6,7 +6,6 @@ import com.tracktainment.bookmanager.dto.BookUpdate;
 import com.tracktainment.bookmanager.entity.BookEntity;
 import org.mapstruct.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Mapper(
@@ -17,8 +16,6 @@ import java.util.UUID;
 public interface BookMapperDataProvider {
 
     Book toBook(BookEntity bookEntity);
-
-    List<Book> toBookList(List<BookEntity> bookEntities);
 
     BookEntity toBookEntity(BookCreate bookCreate);
 

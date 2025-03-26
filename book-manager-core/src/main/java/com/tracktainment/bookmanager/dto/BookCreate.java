@@ -1,5 +1,6 @@
 package com.tracktainment.bookmanager.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.tracktainment.bookmanager.util.Constants;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BookCreate {
 
     @NotNull(message = Constants.TITLE_MANDATORY_MSG)

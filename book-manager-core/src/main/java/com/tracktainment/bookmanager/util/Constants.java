@@ -12,7 +12,7 @@ public class Constants {
     public static final int MIN_OFFSET = 0;
     public static final int MIN_LIMIT = 1;
     public static final int MAX_LIMIT = 100;
-    public static final String DEFAULT_ORDER = "ALPHABETICALLY_TITLE";
+    public static final String DEFAULT_ORDER = "TITLE";
     public static final String DEFAULT_DIRECTION = "ASC";
 
 
@@ -22,6 +22,7 @@ public class Constants {
 
 
     // Regex
+    public static final String ID_REGEX = "^-?\\d{1,19}$";
     public static final String TITLE_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?()&]{1,200}$";
     public static final String AUTHOR_REGEX = "^[A-Za-z\\\\s\\\\-,\\\\.\\\\'\\\\\\\";!?&]{1,100}$";
     public static final String ISBN_REGEX =
@@ -31,9 +32,12 @@ public class Constants {
 
 
     // Fields validation
-    public static final String TITLE_INVALID_MSG = "'title' must match: " + TITLE_REGEX + " .";
-    public static final String AUTHOR_INVALID_MSG = "'author' must match: " + AUTHOR_REGEX + " .";
-    public static final String ISBN_INVALID_MSG = "'isbn' must match: " + ISBN_REGEX + " .";
-    public static final String PUBLISHER_INVALID_MSG = "'publisher' must match: " + PUBLISHER_REGEX + " .";
-    public static final String LANGUAGE_INVALID_MSG = "'language' must match: " + LANGUAGE_REGEX + " .";
+    public static final String ID_INVALID_MSG = "'id' must match: " + ID_REGEX + ".";
+    public static final String TITLE_INVALID_MSG = "'title' must match: " + TITLE_REGEX + ".";
+    public static final String AUTHOR_INVALID_MSG = "'author' must match: " + AUTHOR_REGEX + ".";
+    public static final String ISBN_INVALID_MSG = "'isbn' must match: " + ISBN_REGEX + ".";
+    public static final String PUBLISHER_INVALID_MSG = "'publisher' must match: " + PUBLISHER_REGEX + ".";
+    public static final String LANGUAGE_INVALID_MSG = "'language' must match: " + LANGUAGE_REGEX + ".";
+    public static final String OFFSET_INVALID_MSG = "'offset' must be positive.";
+    public static final String LIMIT_INVALID_MSG = "'limit' must be in the range [" + MIN_LIMIT + ", " + MAX_LIMIT + "]";
 }

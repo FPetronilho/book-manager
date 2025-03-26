@@ -53,11 +53,11 @@ public class BookDataProviderSql implements BookDataProvider {
         Predicate[] predicates = buildPredicates(criteriaBuilder, root, input);
         criteriaQuery.where(predicates);
 
-        applySorting(criteriaBuilder, criteriaQuery, root, input);
+        applyListSorting(criteriaBuilder, criteriaQuery, root, input);
 
         return entityManager.createQuery(criteriaQuery)
                 .setFirstResult(input.getOffset() != null ? input.getOffset() : Constants.MIN_OFFSET)
-                .setMaxResults(input.getLimit() != null ? input.getLimit() : Constants.MAX_LIMIT)
+                .setMaxResults(input.getLimit() != null ? input.getLimit() : Integer.parseInt(Constants.DEFAULT_LIMIT))
                 .getResultList()
                 .stream()
                 .map(mapper::toBook)
@@ -104,11 +104,6 @@ public class BookDataProviderSql implements BookDataProvider {
         Predicate[] predicates = new Predicate[10];
         int index = 0;
 
-        if (input.getCreatedAt() != null) {
-            input.setFrom(null);
-            input.setTo(null);
-        }
-
         if (input.getTitle() != null) {
             predicates[index++] = criteriaBuilder.like(root.get("title"), "%" + input.getTitle() + "%");
         }
@@ -142,13 +137,13 @@ public class BookDataProviderSql implements BookDataProvider {
         }
 
         if (input.getCreatedAt() != null) {
-            predicates[index++] = criteriaBuilder.equal(root.get("createdAt"), input.getCreatedAt());
+            predicates[index] = criteriaBuilder.equal(root.get("createdAt"), input.getCreatedAt());
         }
 
         return predicates;
     }
 
-    private void applySorting(
+    private void applyListSorting(
             CriteriaBuilder criteriaBuilder,
             CriteriaQuery<BookEntity> criteriaQuery,
             Root<BookEntity> root,

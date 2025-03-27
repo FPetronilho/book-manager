@@ -25,5 +25,5 @@ public interface BookMapperDataProvider {
     void updateBookEntity(
             @MappingTarget BookEntity bookEntity,
             BookUpdate bookUpdate
-            );
+    );
 }

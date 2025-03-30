@@ -21,7 +21,7 @@ public class BookEntity extends BaseEntity {
     @Column(name = "author", length = 100)
     private String author;
 
-    @Column(name = "isbn", length = 13)
+    @Column(name = "isbn", length = 17)
     private String isbn;
 
     @Column(name = "publisher", length = 150)

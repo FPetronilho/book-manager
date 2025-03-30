@@ -6,8 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/target/classes/com/tracktainment/bookmanager/domain/Book$BookBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/target/classes/com/tracktainment/bookmanager/domain/Book$BookBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/target/classes/com/tracktainment/bookmanager/domain/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/target/classes/com/tracktainment/bookmanager/domain/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity$BaseEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity$BaseEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity$BaseEntityBuilderImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity$BaseEntityBuilderImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BaseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BookEntity$BookEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BookEntity$BookEntityBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BookEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/entity/BookEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/mapper/BookMapperDataProviderImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/classes/com/tracktainment/bookmanager/mapper/BookMapperDataProviderImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/generated-sources/annotations/com/tracktainment/bookmanager/mapper/BookMapperDataProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/target/generated-sources/annotations/com/tracktainment/bookmanager/mapper/BookMapperDataProviderImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/target/classes/com/tracktainment/bookmanager/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/target/classes/com/tracktainment/bookmanager/controller/BookController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +53,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/dux-manager",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="BookManagerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tracktainment.bookmanager.BookManagerApplication" />

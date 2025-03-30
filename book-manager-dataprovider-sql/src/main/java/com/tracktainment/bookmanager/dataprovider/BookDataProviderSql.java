@@ -99,7 +99,8 @@ public class BookDataProviderSql implements BookDataProvider {
 
     private Predicate[] buildPredicates(
             CriteriaBuilder criteriaBuilder,
-            Root<BookEntity> root, ListByCriteriaUseCase.Input input
+            Root<BookEntity> root,
+            ListByCriteriaUseCase.Input input
     ) {
         List<Predicate> predicates = new ArrayList<>();
 
@@ -120,7 +121,7 @@ public class BookDataProviderSql implements BookDataProvider {
         }
 
         if (input.getPublishedDate() != null) {
-            predicates.add(criteriaBuilder.equal(root.get("publishedDate"),input.getPublishedDate()));
+            predicates.add(criteriaBuilder.equal(root.get("publishedDate"), input.getPublishedDate()));
         }
 
         if (input.getLanguage() != null) {
@@ -128,11 +129,11 @@ public class BookDataProviderSql implements BookDataProvider {
         }
 
         if (input.getFrom() != null) {
-            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("createdAt"), input.getCreatedAt()));
+            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("from"), input.getFrom()));
         }
 
         if (input.getTo() != null) {
-            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("createdAt"), input.getCreatedAt()));
+            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("to"), input.getTo()));
         }
 
         if (input.getCreatedAt() != null) {

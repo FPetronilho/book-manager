@@ -17,9 +17,14 @@ public interface BookMapperDataProvider {
 
     Book toBook(BookEntity bookEntity);
 
+    @Mapping(target = "id", expression = "java(java.util.UUID.randomUUID().toString())")
+    @Mapping(target = "dbId", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
     BookEntity toBookEntity(BookCreate bookCreate);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "dbId", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     void updateBookEntity(

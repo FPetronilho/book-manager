@@ -22,7 +22,7 @@ public class Constants {
 
 
     // Regex
-    public static final String ID_REGEX = "^\\d{1,19}$";
+    public static final String ID_REGEX = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
     public static final String TITLE_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?()&]{1,200}$";
     public static final String AUTHOR_REGEX = "^[\\p{L}\\s\\-,\\.\\'\\\";!?&]{1,100}$";
     public static final String ISBN_REGEX = "^(97[89]-?)?\\d{1,5}-?\\d{1,7}-?\\d{1,7}-?[\\dX]$";

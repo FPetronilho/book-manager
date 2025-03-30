@@ -41,7 +41,7 @@ public class BookController implements BookRestApi {
     }
 
     @Override
-    public ResponseEntity<Book> findById(Long id) {
+    public ResponseEntity<Book> findById(String id) {
         log.info("Finding book: {}.", id);
         FindByIdUseCase.Input input = FindByIdUseCase.Input.builder()
                 .id(id)
@@ -89,7 +89,7 @@ public class BookController implements BookRestApi {
     }
 
     @Override
-    public ResponseEntity<Book> update(Long id, BookUpdate bookUpdate) {
+    public ResponseEntity<Book> update(String id, BookUpdate bookUpdate) {
         log.info("Updating book: {}. Updated book data: {}.", id, bookUpdate);
         UpdateUseCase.Input input = UpdateUseCase.Input.builder()
                 .id(id)
@@ -101,7 +101,7 @@ public class BookController implements BookRestApi {
     }
 
     @Override
-    public ResponseEntity<Void> delete(Long id) {
+    public ResponseEntity<Void> delete(String id) {
         log.info("Deleting book: {}.", id);
         DeleteUseCase.Input input = DeleteUseCase.Input.builder()
                 .id(id)

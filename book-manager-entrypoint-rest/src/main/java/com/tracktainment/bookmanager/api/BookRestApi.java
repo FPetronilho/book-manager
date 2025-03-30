@@ -33,7 +33,9 @@ public interface BookRestApi {
             path ="/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    ResponseEntity<Book> findById(@PathVariable @Min(1) Long id);
+    ResponseEntity<Book> findById(
+            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) String id
+    );
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<Book>> listByCriteria(
@@ -82,10 +84,12 @@ public interface BookRestApi {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     ResponseEntity<Book> update(
-            @PathVariable @Min(1) Long id,
+            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) String id,
             @RequestBody @Valid BookUpdate bookUpdate
     );
 
     @DeleteMapping(path = "/{id}")
-    ResponseEntity<Void> delete(@PathVariable @Min(1) Long id);
+    ResponseEntity<Void> delete(
+            @PathVariable @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) String id
+    );
 }

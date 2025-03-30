@@ -40,7 +40,7 @@ public class BookDataProviderSql implements BookDataProvider {
     }
 
     @Override
-    public Book findById(Long id) {
+    public Book findById(String id) {
         return mapper.toBook(findBookEntityById(id));
     }
 
@@ -66,7 +66,7 @@ public class BookDataProviderSql implements BookDataProvider {
 
     @Override
     @Transactional
-    public Book update(Long id, BookUpdate bookUpdate) {
+    public Book update(String id, BookUpdate bookUpdate) {
         BookEntity bookEntity = findBookEntityById(id);
         mapper.updateBookEntity(bookEntity, bookUpdate);
         return mapper.toBook(bookRepository.save(bookEntity));
@@ -74,11 +74,11 @@ public class BookDataProviderSql implements BookDataProvider {
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(String id) {
         if (existsById(id)) {
             bookRepository.deleteById(id);
         } else {
-            throw new ResourceNotFoundException(BookEntity.class, id.toString());
+            throw new ResourceNotFoundException(BookEntity.class, id);
         }
     }
 
@@ -86,14 +86,14 @@ public class BookDataProviderSql implements BookDataProvider {
         return bookRepository.findByTitle(title).isPresent();
     }
 
-    private boolean existsById(Long id) {
+    private boolean existsById(String id) {
         return bookRepository.findById(id).isPresent();
     }
 
-    private BookEntity findBookEntityById(Long id) {
+    private BookEntity findBookEntityById(String id) {
         return bookRepository.findById(id)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException(BookEntity.class, id.toString())
+                        () -> new ResourceNotFoundException(BookEntity.class, id)
                 );
     }
 

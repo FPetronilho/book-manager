@@ -11,11 +11,11 @@ public interface BookDataProvider {
 
     Book create(BookCreate bookCreate);
 
-    Book findById(Long id);
+    Book findById(String id);
 
     List<Book> listByCriteria(ListByCriteriaUseCase.Input input);
 
-    Book update(Long id, BookUpdate bookUpdate);
+    Book update(String id, BookUpdate bookUpdate);
 
-    void delete(Long id);
+    void delete(String id);
 }

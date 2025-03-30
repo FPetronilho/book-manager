@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Book {
 
-    private Long id;
+    private String id;
     private String title;
     private String author;
     private String isbn;

@@ -54,7 +54,6 @@ public class BookDataProviderSql implements BookDataProvider {
         criteriaQuery.where(predicates);
 
         applyListSorting(criteriaBuilder, criteriaQuery, root, input);
-
         return entityManager.createQuery(criteriaQuery)
                 .setFirstResult(input.getOffset() != null ? input.getOffset() : Constants.MIN_OFFSET)
                 .setMaxResults(input.getLimit() != null ? input.getLimit() : Integer.parseInt(Constants.DEFAULT_LIMIT))

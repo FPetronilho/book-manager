@@ -102,6 +102,12 @@ public class BookDataProviderSql implements BookDataProvider {
             ListByCriteriaUseCase.Input input
     ) {
         List<Predicate> predicates = new ArrayList<>();
+        if (input.getIds() != null) {
+            List<String> ids = List.of(input.getIds().split(","));
+            for (String id : ids) {
+                predicates.add(criteriaBuilder.like(root.get("id"), "%" + id + "%"));
+            }
+        }
 
         if (input.getTitle() != null) {
             predicates.add(criteriaBuilder.like(root.get("title"), "%" + input.getTitle() + "%"));

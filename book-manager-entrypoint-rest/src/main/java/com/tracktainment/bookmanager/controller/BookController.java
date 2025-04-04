@@ -6,6 +6,7 @@ import com.tracktainment.bookmanager.domain.OrderBy;
 import com.tracktainment.bookmanager.domain.OrderDirection;
 import com.tracktainment.bookmanager.dto.BookCreate;
 import com.tracktainment.bookmanager.dto.BookUpdate;
+import com.tracktainment.bookmanager.exception.ParameterValidationFailedException;
 import com.tracktainment.bookmanager.usecases.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -55,6 +56,7 @@ public class BookController implements BookRestApi {
     public ResponseEntity<List<Book>> listByCriteria(
             Integer offset,
             Integer limit,
+            String ids,
             String title,
             String author,
             String isbn,
@@ -67,6 +69,26 @@ public class BookController implements BookRestApi {
             List<OrderBy> orderByList,
             List<OrderDirection> orderDirectionList
     ) {
+        // Input treatment
+        if (createdAt != null) {
+            from = null;
+            to = null;
+        }
+
+        // Input validation
+        if (to != null && from != null && to.isBefore(from)) {
+            throw new ParameterValidationFailedException("Invalid dates input: 'to' must be 'later' than from");
+        }
+
+        if (orderByList.size() != orderDirectionList.size()) {
+            throw new ParameterValidationFailedException(String.format(
+                    "Invalid orderBy and orderDirection pair. " +
+                            "'orderBy' size is %s and orderDirection size is %s. Both sizes must match",
+                    orderByList.size(),
+                    orderDirectionList.size()
+            ));
+        }
+
         ListByCriteriaUseCase.Input input = ListByCriteriaUseCase.Input.builder()
                 .offset(offset)
                 .limit(limit)

@@ -1,0 +1,10 @@
+###################  Microservice base configuration  ###################
+spring.application.environment: local
+
+# #################### DB configuration
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/book-manager
+  username: postgres
+  password: 7346
+
+spring.jpa.hibernate.ddl-auto: create

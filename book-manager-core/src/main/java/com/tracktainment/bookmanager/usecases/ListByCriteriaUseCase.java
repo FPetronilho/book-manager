@@ -31,7 +31,7 @@ public class ListByCriteriaUseCase {
     public static class Input {
         private Integer offset;
         private Integer limit;
-        private String ids;
+        private List<String> ids;
         private String title;
         private String author;
         private String isbn;

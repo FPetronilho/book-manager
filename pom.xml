@@ -34,6 +34,7 @@
 		<module>book-manager-entrypoint-rest</module>
 		<module>book-manager-core</module>
 		<module>book-manager-dataprovider-sql</module>
+		<module>book-manager-dataprovider-rest</module>
 	</modules>
 
 	<!-- ######################################################################### -->
@@ -61,6 +62,11 @@
 			<dependency>
 				<groupId>com.tracktainment</groupId>
 				<artifactId>book-manager-dataprovider-sql</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.tracktainment</groupId>
+				<artifactId>book-manager-dataprovider-rest</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<!-- external dependencies -->

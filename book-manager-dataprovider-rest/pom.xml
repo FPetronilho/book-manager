@@ -18,39 +18,45 @@
 	<!-- #### P R O J E C T _ D E S C R I P T I O N ############################## -->
 	<!-- ######################################################################### -->
 
-	<artifactId>book-manager-application</artifactId>
-	<name>Book Manager :: Application</name>
-	<description>Book Manager Application Module</description>
+	<artifactId>book-manager-dataprovider-rest</artifactId>
+	<name>Book Manager :: Data Provider REST</name>
+	<description>Book Manager Data Provider REST Module</description>
 
 	<!-- #########################################################################  -->
 	<!-- #### P R O J E C T _ D E P E N D E N C I E S ############################ -->
 	<!-- ######################################################################### -->
 
 	<dependencies>
+		<!-- internal dependencies -->
 		<dependency>
 			<groupId>com.tracktainment</groupId>
 			<artifactId>book-manager-core</artifactId>
 		</dependency>
+
+		<!-- external dependencies -->
+		<!-- OpenFeign to implement HTTP calls -->
 		<dependency>
-			<groupId>com.tracktainment</groupId>
-			<artifactId>book-manager-entrypoint-rest</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<!-- HTTP client that supports HTTP/2 and PATCH method -->
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-okhttp</artifactId>
+			<version>13.4</version>
 		</dependency>
 		<dependency>
-			<groupId>com.tracktainment</groupId>
-			<artifactId>book-manager-dataprovider-sql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.tracktainment</groupId>
-			<artifactId>book-manager-dataprovider-rest</artifactId>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-httpclient</artifactId>
+			<version>13.4</version>
 		</dependency>
 	</dependencies>
-
 	<!-- #########################################################################  -->
 	<!-- #### P R O J E C T _ P R O P E R T I E S ################################ -->
 	<!-- ######################################################################### -->
 
 	<properties>
-		<start-class>com.tracktainment.BookManagerApplication</start-class>
 	</properties>
 
 	<!-- #########################################################################  -->
@@ -58,38 +64,6 @@
 	<!-- ######################################################################### -->
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>${lombok.version}</version>
-						</path>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok-mapstruct-binding</artifactId>
-							<version>${lombok-mapstruct-binding.version}</version>
-						</path>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>${mapstruct.version}</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
 
 </project>

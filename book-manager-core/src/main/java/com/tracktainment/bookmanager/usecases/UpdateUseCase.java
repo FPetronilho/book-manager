@@ -13,8 +13,14 @@ import org.springframework.stereotype.Service;
 public class UpdateUseCase {
 
     private final BookDataProvider bookDataProvider;
+    private final FindByIdUseCase findByIdUseCase;
 
     public Output execute(Input input) {
+        Book book = findByIdUseCase.execute(FindByIdUseCase.Input.builder()
+                        .id(input.getId())
+                .build()
+        ).getBook();
+
         return Output.builder()
                 .book(bookDataProvider.update(
                         input.getId(),

@@ -22,10 +22,10 @@ springdoc:
 
 # #################### DB configuration
 spring.datasource:
-  url: jdbc:postgresql://localhost:5432/book-manager
-  username: postgres
-  password: 7346
-  driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book-manager
+    username: postgres
+    password: 7346
+    driver-class-name: org.postgresql.Driver
 
 spring.jpa.hibernate.ddl-auto: create
 

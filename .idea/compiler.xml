@@ -7,9 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="book-manager-dataprovider-sql" />
-        <module name="book-manager-entrypoint-rest" />
-        <module name="book-manager-core" />
       </profile>
       <profile name="Annotation profile for Book Manager" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -23,12 +20,50 @@
         </processorPath>
         <module name="book-manager-application" />
       </profile>
+      <profile name="Annotation profile for book-manager-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/Users/jfgp_/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="book-manager-core" />
+      </profile>
+      <profile name="Annotation profile for book-manager-dataprovider-rest" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/Users/jfgp_/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="book-manager-dataprovider-rest" />
+      </profile>
+      <profile name="Annotation profile for book-manager-dataprovider-sql" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/Users/jfgp_/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="book-manager-dataprovider-sql" />
+      </profile>
+      <profile name="Annotation profile for book-manager-entrypoint-rest" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="D:/Users/jfgp_/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar" />
+        </processorPath>
+        <module name="book-manager-entrypoint-rest" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="book-manager" options="-parameters" />
       <module name="book-manager-application" options="-parameters" />
       <module name="book-manager-core" options="-parameters" />
+      <module name="book-manager-dataprovider-rest" options="-parameters" />
       <module name="book-manager-dataprovider-sql" options="-parameters" />
       <module name="book-manager-entrypoint-rest" options="-parameters" />
     </option>

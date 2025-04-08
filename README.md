@@ -143,7 +143,7 @@ docker-compose up --build
 ```
 http:
   url:
-    dux-manager: http://host.docker.internal:8080/dux-manager/api/v1
+    dux-manager: http://localhost:8080/dux-manager/api/v1
 ```
 > Note for configuration of application.yaml of the other microservices of Tracktainment, please check the respective repositories.
 

@@ -2,6 +2,27 @@
 
 The Book Manager microservice is part of the Tracktainment application, which is designed to track books, movies, and games consumed by users. This microservice is responsible for managing books and their associated metadata. It integrates with the Dux Manager microservice to manage digital user assets.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Features](#features)
+- [API Endpoints](#api-endpoints)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Configuration](#configuration)
+  - [Building](#building)
+  - [Running Locally](#running-locally)
+  - [Docker Setup](#docker-setup)
+- [Error Handling](#error-handling)
+- [Integration with DuxManager](#integration-with-duxmanager)
+- [Validation](#validation)
+- [Development](#development)
+  - [Tech Stack](#tech-stack)
+  - [Project Structure](#project-structure)
+  - [Next Features](#next-features)
+- [Potential Tracktainment Upgrades](#potential-tracktainment-upgrades)
+
 ## Overview
 
 The Book Manager microservice provides CRUD (Create, Read, Update, Delete) operations for managing books. It adheres to the principles of Clean Architecture , ensuring modularity, scalability, and maintainability. The service interacts with a PostgreSQL database for persistent storage and communicates with the Dux Manager microservice via REST APIs to manage digital user assets.
@@ -78,7 +99,7 @@ http:
   url:
     dux-manager: http://dux-manager:8080/dux-manager/api/v1
 ```
-**Note**: When running the application in Docker, the http.url.dux-manager property must use the service name (dux-manager) as the hostname because both services (book-manager and dux-manager) are part of the same Docker network. 
+> Note: When running the application in Docker, the http.url.dux-manager property must use the service name (dux-manager) as the hostname because both services (book-manager and dux-manager) are part of the same Docker network. 
 
 ### Building
 
@@ -104,21 +125,29 @@ http:
 ### Docker Setup
 
 The book-manager application can now be containerized using Docker. To run the application in Docker, follow these steps:
- - Step 1: Build the Docker Image - 
-Run the following command to build the Docker image for all services (book-manager, game-manager, dux-manager, PostgreSQL and MongoDB):
+- Step 1: Clone all repositories containing Tracktainment microservices - Currently these are: book-manager, game-manager and dux-manager. Place them all under the same directory, for example:
+```
+Tracktainment/
+├── book-manager/
+├── dux-manager/
+├── game-manager/
+```
+The docker-compose.yml file needed for the next step will be inside each microservice directory.
+  
+- Step 2: Build the Docker Image - Run the following command to build the Docker image for all services (book-manager, game-manager, dux-manager, PostgreSQL and MongoDB):
 ```
 docker-compose up --build
 ```
 
- - Step 2: Configure the DuxManager Service - 
-When running in Docker, ensure that the http.url.dux-manager property in the application.yml file uses the service name (dux-manager) as the hostname:
+- Step 3: Configure the DuxManager Service - When running in Docker, ensure that the http.url.dux-manager property in the application.yml file uses the service name (dux-manager) as the hostname:
 ```
 http:
   url:
     dux-manager: http://host.docker.internal:8080/dux-manager/api/v1
 ```
+> Note for configuration of application.yaml of the other microservices of Tracktainment, please check the respective repositories.
 
- - Step 3: Start the containers using the following command:
+ - Step 4: Start the containers using the following command:
 ```
 docker-compose up
 ```
@@ -199,7 +228,7 @@ com.tracktainment.bookmanager
 └── util                   # Utility classes
 ```
 
-### Next Features
+### Next Features 
 
 - Authentication and authorization;
 - Unit testing;

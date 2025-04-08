@@ -66,7 +66,7 @@ Create an `application.properties` or `application.yml` file with the following 
 # Database configuration
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/book-manager
+    url: jdbc:postgresql://postgres:5432/book-manager
     username: postgres
     password: your_password
   jpa:
@@ -76,8 +76,9 @@ spring:
 # DuxManager service URL
 http:
   url:
-    dux-manager: http://localhost:8081/dux-manager/api/v1
+    dux-manager: http://dux-manager:8080/dux-manager/api/v1
 ```
+**Note**: When running the application in Docker, the http.url.dux-manager property must use the service name (dux-manager) as the hostname because both services (book-manager and dux-manager) are part of the same Docker network. 
 
 ### Building
 
@@ -86,44 +87,45 @@ To build the application, run the following command:
 mvn clean package
 ```
 
-### Running
+### Running Locally
 
 To run the application locally, use the following command:
 ```bash
 java -jar book-manager.jar
+```
+Ensure that the http.url.dux-manager property in the application.yml file points to the correct URL where the dux-manager service is running. For example:
+- If dux-manager is running locally:
+```
+http:
+  url:
+    dux-manager: http://localhost:8080/dux-manager/api/v1
 ```
 
 ### Docker Setup
 
 The book-manager application can now be containerized using Docker. To run the application in Docker, follow these steps:
  - Step 1: Build the Docker Image - 
-Run the following command to build the Docker image:
+Run the following command to build the Docker image for all services (book-manager, game-manager, dux-manager, PostgreSQL and MongoDB):
 ```
 docker-compose up --build
 ```
 
  - Step 2: Configure the DuxManager Service - 
-If the dux-manager service is running on your host machine (outside Docker), update the http.url.dux-manager property in the application.yml file to use host.docker.internal (for Windows/macOS) or the host machine's IP address (for Linux):
+When running in Docker, ensure that the http.url.dux-manager property in the application.yml file uses the service name (dux-manager) as the hostname:
 ```
 http:
   url:
-    dux-manager: http://host.docker.internal:8081/dux-manager/api/v1
+    dux-manager: http://host.docker.internal:8080/dux-manager/api/v1
 ```
 
-Alternatively, if you Dockerize the dux-manager service as well, ensure both services are part of the same Docker network and use the service name (dux-manager) as the hostname:
-```
-http:
-  url:
-    dux-manager: http://dux-manager:8081/dux-manager/api/v1
-```
-
- - Step 3: Start the Containers - 
-Start the containers using the following command:
+ - Step 3: Start the containers using the following command:
 ```
 docker-compose up
 ```
-
-The book-manager service will be accessible at http://localhost:8080, and it will communicate with the dux-manager service as configured.
+The services will be accessible at the following URLs:
+- book-manager: http://localhost:8081
+- game-manager: http://localhost:8082
+- dux-manager: http://localhost:8080
 
 ## Error Handling
 
@@ -209,3 +211,4 @@ com.tracktainment.bookmanager
 
 - **Review Microservice**: A microservice to handle reviews of books, games and movies.
 - **Recommendation Microservice**: A microservice to handle books, games and movies recommendations based on what the user has consumed so far.
+- **Notification Microservice** : A microservice to send notifications to users about recommendations.

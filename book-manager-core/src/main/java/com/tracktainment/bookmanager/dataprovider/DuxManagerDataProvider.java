@@ -11,8 +11,6 @@ public interface DuxManagerDataProvider {
     AssetResponse createAsset(String digitalUserId, AssetRequest assetRequest);
 
     List<AssetResponse> listAssetsByCriteria(
-            Integer offset,
-            Integer limit,
             String digitalUserId,
             String externalIds,
             String groupId,

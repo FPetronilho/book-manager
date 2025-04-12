@@ -24,8 +24,6 @@ public class DuxManagerDataProviderRest implements DuxManagerDataProvider {
 
     @Override
     public List<AssetResponse> listAssetsByCriteria(
-            Integer offset,
-            Integer limit,
             String digitalUserId,
             String externalIds,
             String groupId,
@@ -36,8 +34,6 @@ public class DuxManagerDataProviderRest implements DuxManagerDataProvider {
             LocalDate to
     ) {
         return duxManagerHttpClient.listAssetsByCriteria(
-                offset,
-                limit,
                 digitalUserId,
                 externalIds,
                 groupId,

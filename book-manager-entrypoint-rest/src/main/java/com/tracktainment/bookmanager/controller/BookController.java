@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -90,13 +89,10 @@ public class BookController implements BookRestApi {
             ));
         }
 
-        // Convert ids into a list
-        List<String> idsList = StringUtils.hasText(ids) ? List.of(ids.split(",")) : null;
-
         ListByCriteriaUseCase.Input input = ListByCriteriaUseCase.Input.builder()
                 .offset(offset)
                 .limit(limit)
-                .ids(idsList)
+                .ids(ids)
                 .title(title)
                 .author(author)
                 .isbn(isbn)

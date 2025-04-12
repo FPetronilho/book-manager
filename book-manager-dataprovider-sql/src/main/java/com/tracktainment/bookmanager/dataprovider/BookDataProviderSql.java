@@ -16,6 +16,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.*;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class BookDataProviderSql implements BookDataProvider {
 
     private final BookRepository bookRepository;
@@ -54,6 +56,7 @@ public class BookDataProviderSql implements BookDataProvider {
         criteriaQuery.where(predicates);
 
         applyListSorting(criteriaBuilder, criteriaQuery, root, input);
+        log.info("offset: {}", input.getOffset());
         return entityManager.createQuery(criteriaQuery)
                 .setFirstResult(input.getOffset() != null ? input.getOffset() : Constants.MIN_OFFSET)
                 .setMaxResults(input.getLimit() != null ? input.getLimit() : Integer.parseInt(Constants.DEFAULT_LIMIT))
@@ -104,7 +107,8 @@ public class BookDataProviderSql implements BookDataProvider {
         List<Predicate> predicates = new ArrayList<>();
 
         if (input.getIds() != null) {
-            predicates.add(root.get("id").in(input.getIds()));
+            List<String> ids = List.of(input.getIds().split(","));
+            predicates.add(criteriaBuilder.in(root.get("id")).value(ids));
         }
 
         if (input.getTitle() != null) {
@@ -132,11 +136,11 @@ public class BookDataProviderSql implements BookDataProvider {
         }
 
         if (input.getFrom() != null) {
-            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("from"), input.getFrom()));
+            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("createdAt"), input.getFrom()));
         }
 
         if (input.getTo() != null) {
-            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("to"), input.getTo()));
+            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("createdAt"), input.getTo()));
         }
 
         if (input.getCreatedAt() != null) {

@@ -32,14 +32,7 @@ public interface DuxManagerHttpClient {
 
     @GetMapping("/assets")
     List<AssetResponse> listAssetsByCriteria(
-            @RequestParam(required = false)
-            @Min(value = Constants.MIN_OFFSET, message = Constants.OFFSET_INVALID_MSG) Integer offset,
-
-            @RequestParam(required = false)
-            @Min(value = Constants.MIN_LIMIT, message = Constants.LIMIT_INVALID_MSG)
-            @Max(value = Constants.MAX_LIMIT, message = Constants.LIMIT_INVALID_MSG) Integer limit,
-
-            @RequestParam(required = false)
+            @RequestParam()
             @Pattern(regexp = Constants.ID_REGEX, message = Constants.DIGITAL_USER_ID_INVALID_MSG) String digitalUserId,
 
             @RequestParam(required = false)
@@ -55,13 +48,13 @@ public interface DuxManagerHttpClient {
             @Pattern(regexp = Constants.TYPE_REGEX, message = Constants.TYPE_INVALID_MSG) String type,
 
             @RequestParam(required = false)
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate createdAt,
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate createdAt,
 
             @RequestParam(required = false)
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate from,
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from,
 
             @RequestParam(required = false)
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate to
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to
     );
 
     @DeleteMapping("/assets")

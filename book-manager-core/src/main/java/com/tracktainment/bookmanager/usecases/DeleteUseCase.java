@@ -28,6 +28,7 @@ public class DeleteUseCase {
                 input.getId()
         );
 
+        // Delete the book
         bookDataProvider.delete(input.getId());
     }
 

@@ -12,11 +12,11 @@ services:
 
   book-manager:
     build:
-      context: .
+      context: ../..
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "8081:8081"
+      - "8444:8444"
     environment:
       SPRING_DATASOURCE_URL: ${POSTGRES_URL}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}

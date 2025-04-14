@@ -40,10 +40,12 @@ public class FindByIdUseCase {
                 null
         );
 
+        // If asset does not exist then throw exception
         if (CollectionUtils.isEmpty(assetResponseList)) {
             throw new ResourceNotFoundException(Book.class, input.getId());
         }
 
+        // Find and return the book
         return Output.builder()
                 .book(bookDataProvider.findById(input.getId()))
                 .build();

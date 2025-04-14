@@ -30,7 +30,7 @@ public class ListByCriteriaUseCase {
         // Get digital user from jwt
         DigitalUser digitalUser = securityUtil.getDigitalUser();
 
-        // Request assets by criteria to dux-manger
+        // Get assets by criteria from dux-manger
         List<AssetResponse> assetResponseList = duxManagerDataProvider.listAssetsByCriteria(
                 input.getJwt(),
                 digitalUser.getId(),
@@ -59,6 +59,8 @@ public class ListByCriteriaUseCase {
         }
 
         input.setIds(assetIds);
+
+        // List the books
         return Output.builder()
                 .books(bookDataProvider.listByCriteria(input))
                 .build();

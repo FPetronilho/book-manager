@@ -16,12 +16,18 @@ public class UpdateUseCase {
     private final FindByIdUseCase findByIdUseCase;
 
     public Output execute(Input input) {
+        /* Finds the book to update. Conditions necessary to retrieve the asset from Dux Manager, i.e. authenticate the
+        digital user, etc. are already being processed in FindByIdUseCase
+         */
         Book book = findByIdUseCase.execute(FindByIdUseCase.Input.builder()
                         .jwt(input.getJwt())
                         .id(input.getId())
                         .build()
         ).getBook();
 
+        /* Update and return the updated book. No action is necessary on Dux Manager as it only stores information on
+        what assets each digital user has. It does not contain information of the book itself.
+         */
         return Output.builder()
                 .book(bookDataProvider.update(
                         input.getId(),

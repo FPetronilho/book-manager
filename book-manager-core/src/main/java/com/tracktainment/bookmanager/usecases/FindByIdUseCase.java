@@ -6,6 +6,7 @@ import com.tracktainment.bookmanager.domain.Book;
 import com.tracktainment.bookmanager.dto.duxmanager.response.AssetResponse;
 import com.tracktainment.bookmanager.exception.ResourceNotFoundException;
 import com.tracktainment.bookmanager.security.context.DigitalUser;
+import com.tracktainment.bookmanager.security.util.SecurityUtil;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,12 +21,15 @@ public class FindByIdUseCase {
 
     private final BookDataProvider bookDataProvider;
     private final DuxManagerDataProvider duxManagerDataProvider;
+    private final SecurityUtil securityUtil;
 
     public Output execute(Input input) {
-        DigitalUser digitalUser = new DigitalUser();
-        digitalUser.setId("bd30e6d3-d51f-4548-910f-c93a25437259");
+        // Get digital user from jwt
+        DigitalUser digitalUser = securityUtil.getDigitalUser();
 
+        // Get asset from dux-manager
         List<AssetResponse> assetResponseList = duxManagerDataProvider.listAssetsByCriteria(
+                input.getJwt(),
                 digitalUser.getId(),
                 input.getId(),
                 "com.tracktainment",
@@ -50,6 +54,7 @@ public class FindByIdUseCase {
     @Data
     @Builder
     public static class Input {
+        private String jwt;
         private String id;
     }
 

@@ -4,8 +4,6 @@ import com.tracktainment.bookmanager.dto.duxmanager.request.AssetRequest;
 import com.tracktainment.bookmanager.dto.duxmanager.response.AssetResponse;
 import com.tracktainment.bookmanager.util.Constants;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,6 +22,8 @@ public interface DuxManagerHttpClient {
 
     @PostMapping("/assets/digitalUsers/{digitalUserId}")
     AssetResponse createAsset(
+            @RequestHeader("Authorization") String authorization,
+
             @PathVariable
             @Pattern(regexp = Constants.ID_REGEX, message = Constants.ID_INVALID_MSG) String digitalUserId,
 
@@ -32,6 +32,8 @@ public interface DuxManagerHttpClient {
 
     @GetMapping("/assets")
     List<AssetResponse> listAssetsByCriteria(
+            @RequestHeader("Authorization") String authorization,
+
             @RequestParam()
             @Pattern(regexp = Constants.ID_REGEX, message = Constants.DIGITAL_USER_ID_INVALID_MSG) String digitalUserId,
 
@@ -59,6 +61,8 @@ public interface DuxManagerHttpClient {
 
     @DeleteMapping("/assets")
     void deleteAsset(
+            @RequestHeader("Authorization") String authorization,
+
             @RequestParam(required = false)
             @Pattern(regexp = Constants.ID_REGEX, message = Constants.DIGITAL_USER_ID_INVALID_MSG) String digitalUserId,
 

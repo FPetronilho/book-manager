@@ -8,6 +8,7 @@ import com.tracktainment.bookmanager.dto.BookCreate;
 import com.tracktainment.bookmanager.dto.BookUpdate;
 import com.tracktainment.bookmanager.exception.ParameterValidationFailedException;
 import com.tracktainment.bookmanager.usecases.*;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -29,11 +30,15 @@ public class BookController implements BookRestApi {
     private final ListByCriteriaUseCase listByCriteriaUseCase;
     private final UpdateUseCase updateUseCase;
     private final DeleteUseCase deleteUseCase;
+    private final HttpServletRequest httpServletRequest;
 
     @Override
     public ResponseEntity<Book> create(BookCreate bookCreate) {
         log.info("Creating book: {}.", bookCreate);
+        String jwt = httpServletRequest.getHeader("Authorization");
+
         CreateUseCase.Input input = CreateUseCase.Input.builder()
+                .jwt(jwt)
                 .bookCreate(bookCreate)
                 .build();
 
@@ -44,7 +49,10 @@ public class BookController implements BookRestApi {
     @Override
     public ResponseEntity<Book> findById(String id) {
         log.info("Finding book: {}.", id);
+        String jwt = httpServletRequest.getHeader("Authorization");
+
         FindByIdUseCase.Input input = FindByIdUseCase.Input.builder()
+                .jwt(jwt)
                 .id(id)
                 .build();
 
@@ -89,7 +97,11 @@ public class BookController implements BookRestApi {
             ));
         }
 
+        // Get JWT
+        String jwt = httpServletRequest.getHeader("Authorization");
+
         ListByCriteriaUseCase.Input input = ListByCriteriaUseCase.Input.builder()
+                .jwt(jwt)
                 .offset(offset)
                 .limit(limit)
                 .ids(ids)
@@ -114,7 +126,10 @@ public class BookController implements BookRestApi {
     @Override
     public ResponseEntity<Book> update(String id, BookUpdate bookUpdate) {
         log.info("Updating book: {}. Updated book data: {}.", id, bookUpdate);
+        String jwt = httpServletRequest.getHeader("Authorization");
+
         UpdateUseCase.Input input = UpdateUseCase.Input.builder()
+                .jwt(jwt)
                 .id(id)
                 .bookUpdate(bookUpdate)
                 .build();
@@ -126,7 +141,10 @@ public class BookController implements BookRestApi {
     @Override
     public ResponseEntity<Void> delete(String id) {
         log.info("Deleting book: {}.", id);
+        String jwt = httpServletRequest.getHeader("Authorization");
+
         DeleteUseCase.Input input = DeleteUseCase.Input.builder()
+                .jwt(jwt)
                 .id(id)
                 .build();
 

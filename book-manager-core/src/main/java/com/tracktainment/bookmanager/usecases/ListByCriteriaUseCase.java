@@ -7,6 +7,7 @@ import com.tracktainment.bookmanager.domain.OrderBy;
 import com.tracktainment.bookmanager.domain.OrderDirection;
 import com.tracktainment.bookmanager.dto.duxmanager.response.AssetResponse;
 import com.tracktainment.bookmanager.security.context.DigitalUser;
+import com.tracktainment.bookmanager.security.util.SecurityUtil;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,15 @@ public class ListByCriteriaUseCase {
 
     private final BookDataProvider bookDataProvider;
     private final DuxManagerDataProvider duxManagerDataProvider;
+    private final SecurityUtil securityUtil;
 
     public Output execute(Input input) {
-        DigitalUser digitalUser = new DigitalUser();
-        digitalUser.setId("bd30e6d3-d51f-4548-910f-c93a25437259");
+        // Get digital user from jwt
+        DigitalUser digitalUser = securityUtil.getDigitalUser();
 
+        // Request assets by criteria to dux-manger
         List<AssetResponse> assetResponseList = duxManagerDataProvider.listAssetsByCriteria(
+                input.getJwt(),
                 digitalUser.getId(),
                 input.getIds(),
                 "com.tracktainment",
@@ -39,10 +43,12 @@ public class ListByCriteriaUseCase {
                 input.getTo()
         );
 
+        // Convert list of assets to String so that it can be replaced in "ids" input
         String assetIds = assetResponseList.stream()
                 .map(AssetResponse::getExternalId)
                 .collect(Collectors.joining(","));
 
+        // Check if "ids" input is empty because no assets match or, because that criteria was never inputted
         boolean idsInputIsEmpty = input.getIds() == null;
         if (!StringUtils.hasText(assetIds)) {
             if (!idsInputIsEmpty) {
@@ -63,6 +69,7 @@ public class ListByCriteriaUseCase {
     @Data
     @Builder
     public static class Input {
+        private String jwt;
         private Integer offset;
         private Integer limit;
         private String ids;

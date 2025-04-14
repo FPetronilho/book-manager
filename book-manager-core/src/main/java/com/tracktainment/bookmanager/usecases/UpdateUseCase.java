@@ -17,8 +17,9 @@ public class UpdateUseCase {
 
     public Output execute(Input input) {
         Book book = findByIdUseCase.execute(FindByIdUseCase.Input.builder()
+                        .jwt(input.getJwt())
                         .id(input.getId())
-                .build()
+                        .build()
         ).getBook();
 
         return Output.builder()
@@ -34,6 +35,7 @@ public class UpdateUseCase {
     @Data
     @Builder
     public static class Input {
+        private String jwt;
         private String id;
         private BookUpdate bookUpdate;
     }

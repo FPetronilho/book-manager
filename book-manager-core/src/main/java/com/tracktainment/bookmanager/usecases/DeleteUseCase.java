@@ -3,6 +3,7 @@ package com.tracktainment.bookmanager.usecases;
 import com.tracktainment.bookmanager.dataprovider.BookDataProvider;
 import com.tracktainment.bookmanager.dataprovider.DuxManagerDataProvider;
 import com.tracktainment.bookmanager.security.context.DigitalUser;
+import com.tracktainment.bookmanager.security.util.SecurityUtil;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,19 @@ public class DeleteUseCase {
 
     private final BookDataProvider bookDataProvider;
     private final DuxManagerDataProvider duxManagerDataProvider;
+    private final SecurityUtil securityUtil;
 
     public void execute(Input input) {
-        DigitalUser digitalUser = new DigitalUser();
-        digitalUser.setId("bd30e6d3-d51f-4548-910f-c93a25437259");
+        // Get digital user from jwt
+        DigitalUser digitalUser = securityUtil.getDigitalUser();
 
-        duxManagerDataProvider.deleteAsset(digitalUser.getId(), input.getId());
+        // Delete asset in dux-manager
+        duxManagerDataProvider.deleteAsset(
+                input.getJwt(),
+                digitalUser.getId(),
+                input.getId()
+        );
+
         bookDataProvider.delete(input.getId());
     }
 
@@ -28,6 +36,7 @@ public class DeleteUseCase {
     @Data
     @Builder
     public static class Input {
+        private String jwt;
         private String id;
     }
 }

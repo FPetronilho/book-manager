@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/BookCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/BookCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/BookUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/BookUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderBy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/duxmanager/request/AssetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/duxmanager/request/AssetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/duxmanager/response/AssetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dto/duxmanager/response/AssetResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/security/context/DigitalUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/security/context/DigitalUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/swagger/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/swagger/OpenApiConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +53,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jfgp_/IntelliJ Projects/book-manager/.env&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/game-manager",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\resources\docker" />

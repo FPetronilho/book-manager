@@ -31,7 +31,7 @@ public class OpenApiConfig {
                         .description("This is the documentation for the " + applicationName +
                                 " RESTful API. It provides endpoints for managing books and their related operations.")
                         .contact(new Contact()
-                                .name("Tracktainment Team")
+                                .name("")
                                 .email("")
                                 .url(""))
                         .license(new License()

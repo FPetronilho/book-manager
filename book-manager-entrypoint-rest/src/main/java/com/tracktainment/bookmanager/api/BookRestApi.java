@@ -96,6 +96,10 @@ public interface BookRestApi {
             @RequestParam(required = false)
             @Pattern(regexp = Constants.AUTHOR_REGEX, message = Constants.AUTHOR_INVALID_MSG) String author,
 
+            @Parameter(description = "Filter by genre")
+            @RequestParam(required = false)
+            @Pattern(regexp = Constants.GENRE_REGEX, message = Constants.GENRE_INVALID_MSG) String genre,
+
             @Parameter(description = "Filter by ISBN")
             @RequestParam(required = false)
             @Pattern(regexp = Constants.ISBN_REGEX, message = Constants.ISBN_INVALID_MSG) String isbn,

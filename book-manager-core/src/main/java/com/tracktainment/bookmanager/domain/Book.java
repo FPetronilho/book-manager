@@ -24,6 +24,9 @@ public class Book {
     @Schema(description = "Author of the book", example = "F. Scott Fitzgerald")
     private String author;
 
+    @Schema(description = "Genre of the book", example = "Drama")
+    private String genre;
+
     @Schema(description = "ISBN of the book", example = "978-3-16-148410-0")
     private String isbn;
 

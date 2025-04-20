@@ -14,7 +14,7 @@ public interface DuxManagerDataProvider {
             AssetRequest assetRequest
     );
 
-    List<AssetResponse> listAssetsByCriteria(
+    List<AssetResponse> findAssetsByCriteria(
             String jwt,
             String digitalUserId,
             String externalIds,
@@ -26,7 +26,7 @@ public interface DuxManagerDataProvider {
             LocalDate to
     );
 
-    void deleteAsset(
+    void deleteAssetByExternalId(
             String jwt,
             String digitalUserId,
             String externalId

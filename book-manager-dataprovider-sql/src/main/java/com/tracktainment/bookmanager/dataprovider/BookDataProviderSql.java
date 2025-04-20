@@ -125,6 +125,13 @@ public class BookDataProviderSql implements BookDataProvider {
             ));
         }
 
+        if (input.getGenre() != null) {
+            predicates.add(criteriaBuilder.like(
+                    root.get("genre"),
+                    "%" + input.getGenre() + "%"
+            ));
+        }
+
         if (input.getIsbn() != null) {
             predicates.add(criteriaBuilder.like(
                     root.get("isbn"),
@@ -204,6 +211,14 @@ public class BookDataProviderSql implements BookDataProvider {
                             orderList.add(criteriaBuilder.asc(root.get("author")));
                         } else {
                             orderList.add(criteriaBuilder.desc(root.get("author")));
+                        }
+                    }
+
+                    if (orderBy == OrderBy.GENRE) {
+                        if (orderDirection == OrderDirection.ASC) {
+                            orderList.add(criteriaBuilder.asc(root.get("genre")));
+                        } else {
+                            orderList.add(criteriaBuilder.desc(root.get("genre")));
                         }
                     }
 

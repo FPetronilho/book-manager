@@ -31,7 +31,7 @@ public interface DuxManagerHttpClient {
     );
 
     @GetMapping("/assets")
-    List<AssetResponse> listAssetsByCriteria(
+    List<AssetResponse> findAssetsByCriteria(
             @RequestHeader("Authorization") String authorization,
 
             @RequestParam()
@@ -60,7 +60,7 @@ public interface DuxManagerHttpClient {
     );
 
     @DeleteMapping("/assets")
-    void deleteAsset(
+    void deleteAssetByExternalId(
             @RequestHeader("Authorization") String authorization,
 
             @RequestParam(required = false)

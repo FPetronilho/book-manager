@@ -25,6 +25,7 @@ public class Constants {
     public static final String ID_REGEX = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
     public static final String TITLE_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?()&]{1,200}$";
     public static final String AUTHOR_REGEX = "^[\\p{L}\\s\\-,\\.\\'\\\";!?&]{1,100}$";
+    public static final String GENRE_REGEX = "^[A-Za-z\\\\s\\\\-]{1,50}$";
     public static final String ISBN_REGEX = "^(97[89]-?)?\\d{1,5}-?\\d{1,7}-?\\d{1,7}-?[\\dX]$";
     public static final String PUBLISHER_REGEX = "^[A-Za-z0-9\\s\\-,\\.\\'\\\";!?&()]{1,150}$";
     public static final String LANGUAGE_REGEX = "^[\\p{L}\\s\\-']{1,50}$";
@@ -44,6 +45,7 @@ public class Constants {
     public static final String ID_INVALID_MSG = "'id' must match: " + ID_REGEX + ".";
     public static final String TITLE_INVALID_MSG = "'title' must match: " + TITLE_REGEX + ".";
     public static final String AUTHOR_INVALID_MSG = "'author' must match: " + AUTHOR_REGEX + ".";
+    public static final String GENRE_INVALID_MSG = "'genre' must match: " + GENRE_REGEX + ".";
     public static final String ISBN_INVALID_MSG = "'isbn' must match: " + ISBN_REGEX + ".";
     public static final String PUBLISHER_INVALID_MSG = "'publisher' must match: " + PUBLISHER_REGEX + ".";
     public static final String LANGUAGE_INVALID_MSG = "'language' must match: " + LANGUAGE_REGEX + ".";

@@ -28,7 +28,7 @@ public class FindByIdUseCase {
         DigitalUser digitalUser = securityUtil.getDigitalUser();
 
         // Get asset from dux-manager
-        List<AssetResponse> assetResponseList = duxManagerDataProvider.listAssetsByCriteria(
+        List<AssetResponse> assetResponseList = duxManagerDataProvider.findAssetsByCriteria(
                 input.getJwt(),
                 digitalUser.getId(),
                 input.getId(),

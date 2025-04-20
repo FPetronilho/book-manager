@@ -22,7 +22,7 @@ public class DeleteUseCase {
         DigitalUser digitalUser = securityUtil.getDigitalUser();
 
         // Delete asset in dux-manager
-        duxManagerDataProvider.deleteAsset(
+        duxManagerDataProvider.deleteAssetByExternalId(
                 input.getJwt(),
                 digitalUser.getId(),
                 input.getId()

@@ -67,6 +67,7 @@ public class BookController implements BookRestApi {
             String ids,
             String title,
             String author,
+            String genre,
             String isbn,
             String publisher,
             LocalDate publishedDate,
@@ -107,6 +108,7 @@ public class BookController implements BookRestApi {
                 .ids(ids)
                 .title(title)
                 .author(author)
+                .genre(genre)
                 .isbn(isbn)
                 .publisher(publisher)
                 .publishedDate(publishedDate)

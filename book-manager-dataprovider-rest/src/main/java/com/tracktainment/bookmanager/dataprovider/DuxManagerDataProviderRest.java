@@ -31,7 +31,7 @@ public class DuxManagerDataProviderRest implements DuxManagerDataProvider {
     }
 
     @Override
-    public List<AssetResponse> listAssetsByCriteria(
+    public List<AssetResponse> findAssetsByCriteria(
             String jwt,
             String digitalUserId,
             String externalIds,
@@ -42,7 +42,7 @@ public class DuxManagerDataProviderRest implements DuxManagerDataProvider {
             LocalDate from,
             LocalDate to
     ) {
-        return duxManagerHttpClient.listAssetsByCriteria(
+        return duxManagerHttpClient.findAssetsByCriteria(
                 jwt,
                 digitalUserId,
                 externalIds,
@@ -56,12 +56,12 @@ public class DuxManagerDataProviderRest implements DuxManagerDataProvider {
     }
 
     @Override
-    public void deleteAsset(
+    public void deleteAssetByExternalId(
             String jwt,
             String digitalUserId,
             String externalId
     ) {
-        duxManagerHttpClient.deleteAsset(
+        duxManagerHttpClient.deleteAssetByExternalId(
                 jwt,
                 digitalUserId,
                 externalId

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="" />
+    <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-manager-core/src/test/java/usecases/CreateUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/test/java/usecases/CreateUseCaseTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,41 +52,56 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/book-manager/book-manager-entrypoint-rest/src/test/java",
+    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/book-manager/book-manager-dataprovider-sql/src/test/java",
     "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-dataprovider-sql\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-entrypoint-rest\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-dataprovider-rest\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-core\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-core\src\test\java\exception" />
-      <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-core\src\main\java\com\tracktainment\bookmanager\exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\resources\docker" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExceptionDtoTest">
-    <configuration name="ExceptionDtoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-entrypoint-rest" />
+  <component name="RunManager" selected="JUnit.BookMapperDataProviderTest">
+    <configuration name="BaseEntityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-dataprovider-sql" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="exception.*" />
+          <option name="PATTERN" value="entity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="exception" />
-      <option name="MAIN_CLASS_NAME" value="exception.ExceptionDtoTest" />
+      <option name="PACKAGE_NAME" value="entity" />
+      <option name="MAIN_CLASS_NAME" value="entity.BaseEntityTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExceptionMapperEntryPointRestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-entrypoint-rest" />
+    <configuration name="BookEntityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-dataprovider-sql" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="entity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="entity" />
+      <option name="MAIN_CLASS_NAME" value="entity.BookEntityTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookMapperDataProviderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-dataprovider-sql" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="mapper.*" />
@@ -91,52 +109,37 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="mapper" />
-      <option name="MAIN_CLASS_NAME" value="mapper.ExceptionMapperEntryPointRestTest" />
+      <option name="MAIN_CLASS_NAME" value="mapper.BookMapperDataProviderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OpenApiConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-entrypoint-rest" />
+    <configuration name="ConstantsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="swagger.*" />
+          <option name="PATTERN" value="util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="swagger" />
-      <option name="MAIN_CLASS_NAME" value="swagger.OpenApiConfigTest" />
+      <option name="PACKAGE_NAME" value="util" />
+      <option name="MAIN_CLASS_NAME" value="util.ConstantsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestExceptionHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-entrypoint-rest" />
+    <configuration name="UpdateUseCaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-core" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="exception.*" />
+          <option name="PATTERN" value="usecases.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="exception" />
-      <option name="MAIN_CLASS_NAME" value="exception.RestExceptionHandlerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SecurityConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-entrypoint-rest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="security.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="security" />
-      <option name="MAIN_CLASS_NAME" value="security.SecurityConfigTest" />
+      <option name="PACKAGE_NAME" value="usecases" />
+      <option name="MAIN_CLASS_NAME" value="usecases.UpdateUseCaseTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExceptionDtoTest" />
-        <item itemvalue="JUnit.RestExceptionHandlerTest" />
-        <item itemvalue="JUnit.ExceptionMapperEntryPointRestTest" />
-        <item itemvalue="JUnit.SecurityConfigTest" />
-        <item itemvalue="JUnit.OpenApiConfigTest" />
+        <item itemvalue="JUnit.BookMapperDataProviderTest" />
+        <item itemvalue="JUnit.BookEntityTest" />
+        <item itemvalue="JUnit.BaseEntityTest" />
+        <item itemvalue="JUnit.ConstantsTest" />
+        <item itemvalue="JUnit.UpdateUseCaseTest" />
       </list>
     </recent_temporary>
   </component>

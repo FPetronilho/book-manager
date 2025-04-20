@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dataprovider/DuxManagerDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/dataprovider/DuxManagerDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/domain/OrderBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/exception/ResourceAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/exception/ResourceAlreadyExistsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/security/util/SecurityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/security/util/SecurityUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/DeleteUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/DeleteUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/FindByIdUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/FindByIdUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/ListByCriteriaUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/usecases/ListByCriteriaUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-core/src/main/java/com/tracktainment/bookmanager/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-rest/src/main/java/com/tracktainment/bookmanager/client/DuxManagerHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-rest/src/main/java/com/tracktainment/bookmanager/client/DuxManagerHttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-rest/src/main/java/com/tracktainment/bookmanager/dataprovider/DuxManagerDataProviderRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-rest/src/main/java/com/tracktainment/bookmanager/dataprovider/DuxManagerDataProviderRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/dataprovider/BookDataProviderSql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-dataprovider-sql/src/main/java/com/tracktainment/bookmanager/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/api/BookRestApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-manager-entrypoint-rest/src/main/java/com/tracktainment/bookmanager/controller/BookController.java" afterDir="false" />
-    </list>
+    <list default="true" id="fc8145e6-fbb5-48d1-a131-a389956f2114" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,12 +49,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/book-manager/book-manager-dataprovider-rest/src/test/java",
+    "last_opened_file_path": "C:/Users/jfgp_/IntelliJ Projects/book-manager/book-manager-entrypoint-rest/src/test/java",
     "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-entrypoint-rest\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-dataprovider-rest\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-core\src\test\java" />
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\book-manager-core\src\test\java\exception" />
@@ -83,24 +66,9 @@
       <recent name="C:\Users\jfgp_\IntelliJ Projects\book-manager\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DuxManagerDataProviderRestTest">
-    <configuration name="AssetMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="mapper" />
-      <option name="MAIN_CLASS_NAME" value="mapper.AssetMapperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthorizationFailedExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-core" />
+  <component name="RunManager" selected="JUnit.ExceptionDtoTest">
+    <configuration name="ExceptionDtoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-entrypoint-rest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="exception.*" />
@@ -108,52 +76,67 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="exception" />
-      <option name="MAIN_CLASS_NAME" value="exception.AuthorizationFailedExceptionTest" />
+      <option name="MAIN_CLASS_NAME" value="exception.ExceptionDtoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DuxManagerDataProviderRestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-dataprovider-rest" />
+    <configuration name="ExceptionMapperEntryPointRestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-entrypoint-rest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataprovider.*" />
+          <option name="PATTERN" value="mapper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataprovider" />
-      <option name="MAIN_CLASS_NAME" value="dataprovider.DuxManagerDataProviderRestTest" />
+      <option name="PACKAGE_NAME" value="mapper" />
+      <option name="MAIN_CLASS_NAME" value="mapper.ExceptionMapperEntryPointRestTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DuxManagerHttpClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-dataprovider-rest" />
+    <configuration name="OpenApiConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-entrypoint-rest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.*" />
+          <option name="PATTERN" value="swagger.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.DuxManagerHttpClientTest" />
+      <option name="PACKAGE_NAME" value="swagger" />
+      <option name="MAIN_CLASS_NAME" value="swagger.OpenApiConfigTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FeignConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="book-manager-dataprovider-rest" />
+    <configuration name="RestExceptionHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-entrypoint-rest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="config.*" />
+          <option name="PATTERN" value="exception.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="config" />
-      <option name="MAIN_CLASS_NAME" value="config.FeignConfigTest" />
+      <option name="PACKAGE_NAME" value="exception" />
+      <option name="MAIN_CLASS_NAME" value="exception.RestExceptionHandlerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-manager-entrypoint-rest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="security" />
+      <option name="MAIN_CLASS_NAME" value="security.SecurityConfigTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DuxManagerDataProviderRestTest" />
-        <item itemvalue="JUnit.DuxManagerHttpClientTest" />
-        <item itemvalue="JUnit.FeignConfigTest" />
-        <item itemvalue="JUnit.AssetMapperTest" />
-        <item itemvalue="JUnit.AuthorizationFailedExceptionTest" />
+        <item itemvalue="JUnit.ExceptionDtoTest" />
+        <item itemvalue="JUnit.RestExceptionHandlerTest" />
+        <item itemvalue="JUnit.ExceptionMapperEntryPointRestTest" />
+        <item itemvalue="JUnit.SecurityConfigTest" />
+        <item itemvalue="JUnit.OpenApiConfigTest" />
       </list>
     </recent_temporary>
   </component>

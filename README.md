@@ -7,35 +7,34 @@ The Book Manager microservice is part of the Tracktainment application, which is
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
 - [API Endpoints](#api-endpoints)
-- [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
+- [Setup and Installation](#setup-and-installation)
   - [Prerequisites](#prerequisites)
-  - [Configuration](#configuration)
-  - [Building](#building)
-  - [Running Locally](#running-locally)
+  - [Local Development](#local-development)
   - [Docker Setup](#docker-setup)
+- [Authentication](#authentication)
 - [Error Handling](#error-handling)
-- [Integration with DuxManager](#integration-with-duxmanager)
 - [Validation](#validation)
-- [Development](#development)
-  - [Tech Stack](#tech-stack)
-  - [Project Structure](#project-structure)
-  - [Next Features](#next-features)
+- [Integration with DuxManager](#integration-with-duxmanager)
+- [Next Features](#next-features)
 - [Potential Tracktainment Upgrades](#potential-tracktainment-upgrades)
 
 ## Overview
 
-The Book Manager microservice provides CRUD (Create, Read, Update, Delete) operations for managing books. It adheres to the principles of Clean Architecture , ensuring modularity, scalability, and maintainability. The service interacts with a PostgreSQL database for persistent storage and communicates with the Dux Manager microservice via REST APIs to manage digital user assets.
+Book Manager is a microservice application that provides RESTful APIs for managing books. It follows clean architecture principles with a clear separation of concerns, making it maintainable, testable, and scalable. The application allows users to create, read, update, and delete books, while also integrating with an external system (DUX Manager) for asset management.
 
 ## Architecture
 
 The project follows a clean architecture with clear separation of concerns:
 
-- **Application Module**: Handles application configuration and properties.
-- **Core Module**: Contains domain models, DTOs, use cases, and interfaces for data providers
+- **Application Module**: Handles application configuration and properties
+- **Core Module**: Contains business rules, domain models, and use cases
 - **Data Provider SQL Module**: Implementation of persistence layer using JPA/Hibernate
-- **Entry Point REST Module**: REST API controllers and exception handling
-- **Data Provider REST Module**: Integration with external DuxManager service
+- **Data Provider REST Module**: Integration with external (Dux Manager) service
+- **Entry Point REST Module**: REST API controllers and resources
 
 ## Features
 
@@ -43,7 +42,64 @@ The project follows a clean architecture with clear separation of concerns:
 - Advanced filtering and search capabilities
 - Sorting by various book attributes
 - Integration with DuxManager for asset tracking
-- Comprehensive validation and error handling
+- OAuth2 security with JWT
+- Swagger/OpenAPI documentation
+- Comprehensive validation and exception handling
+
+## Tech Stack
+
+- Java 17
+- Spring Boot 3.3.4
+- Spring Data JPA
+- Spring Security with OAuth2
+- Jakarta Validation
+- Feign Client
+- Lombok
+- MapStruct
+- PostgreSQL
+- Maven
+- Docker
+- Swagger/OpenAPI
+- HTTPS enabled via SSL certificates
+- JUnit 5 & Mockito
+
+## Project Structure
+```
+book-manager
+├── book-manager-application           # Spring Boot application module│
+├── book-manager-core                  # Core domain and business logic
+│       ├── domain                     # Domain models
+│       ├── dto                        # Data Transfer Objects
+│       ├── exception                  # Exception definitions
+│       ├── mapper                     # Mappers for core module
+│       ├── security                   # Security context
+│       ├── usecases                   # Business use cases
+│       ├── util                       # Utility classes
+│       └── dataprovider               # Data provider interfaces
+│
+├── book-manager-entrypoint-rest       # REST API entry point
+│       ├── api                        # API interfaces
+│       ├── controller                 # REST controllers
+│       ├── exception                  # REST exception handlers
+│       ├── mapper                     # Mappers for REST module
+│       ├── security                   # Security configuration
+│       └── swagger                    # OpenAPI/Swagger config
+│
+├── book-manager-dataprovider-sql      # SQL data provider implementation
+│       ├── dataprovider               # SQL data provider implementations
+│       ├── entity                     # JPA entities
+│       ├── mapper                     # SQL-specific mappers
+│       └── repository                 # Spring Data repositories
+│
+├── book-manager-dataprovider-rest     # REST client data provider
+│       ├── client                     # External service clients
+│       ├── config                     # REST client configuration
+│       └── dataprovider               # REST data provider implementations
+│
+└── resources                          # Project resources
+    ├── certificate                    # SSL certificates
+    └── docker                         # Docker configuration
+```
 
 ## API Endpoints
 
@@ -55,6 +111,16 @@ The project follows a clean architecture with clear separation of concerns:
 | PATCH  | `/api/v1/books/{id}` | Update a book           |
 | DELETE | `/api/v1/books/{id}` | Delete a book           |
 
+## API Documentation
+When running the application, the Swagger UI is available at:
+```
+https://localhost:8444/book-manager/swagger-ui.html
+```
+The OpenAPI specification is available at:
+```
+https://localhost:8444/book-manager/api-docs
+```
+
 ## Data Model
 
 The Book entity has the following attributes:
@@ -62,6 +128,7 @@ The Book entity has the following attributes:
 - `id`: Unique identifier
 - `title`: Book title
 - `author`: Book author
+- `genre`: Book genre
 - `isbn`: International Standard Book Number
 - `publisher`: Book publisher
 - `publishedDate`: Date of publication
@@ -69,84 +136,64 @@ The Book entity has the following attributes:
 - `createdAt`: Record creation timestamp
 - `updatedAt`: Last update timestamp
 
-## Getting Started
+## Setup and Installation
 
 ### Prerequisites
 
 - Java 17+
-- Maven
-- PostgreSQL or another compatible database
-- Access to DuxManager service
+- Maven 3.6+
+- PostgreSQL 15+
+- DuxManager service running (https://github.com/FPetronilho/dux-manager)
 - Docker (optional, for containerized deployment)
 
-### Configuration
-
-Create an `application.properties` or `application.yml` file with the following properties:
-
-```properties
-# Database configuration
-spring:
-  datasource:
-    url: jdbc:postgresql://postgres:5432/book-manager
-    username: postgres
-    password: your_password
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-# DuxManager service URL
-http:
-  url:
-    dux-manager: http://dux-manager:8080/dux-manager/api/v1
+### Local Development
+ - Step 1: Clone the repository
 ```
-> Note: When running the application in Docker, the http.url.dux-manager property must use the service name (dux-manager) as the hostname because both services (book-manager and dux-manager) are part of the same Docker network. 
-
-### Building
-
-To build the application, run the following command:
-```bash
-mvn clean package
+git clone https://github.com/yourusername/book-manager.git
+cd book-manager
 ```
-
-### Running Locally
-
-To run the application locally, use the following command:
-```bash
-java -jar book-manager.jar
-```
-Ensure that the http.url.dux-manager property in the application.yml file points to the correct URL where the dux-manager service is running. For example:
-- If dux-manager is running locally:
+- Step 2: Set up the PostgreSQL database - Create a database named 'book-manager'
+- Step 3: Configure application properties Create a .env file to setup environment variables or update book-manager-application/src/main/resources/application-local.yaml.
+Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
 ```
 http:
   url:
     dux-manager: http://localhost:8080/dux-manager/api/v1
 ```
+- Step 4: Build the project
+```
+mvn clean install
+```
+- Step 5: Run the application
+```bash
+java -jar book-manager.jar
+```
 
 ### Docker Setup
  
 The book-manager application can now be containerized using Docker. To run the application in Docker, follow these steps:
-  - Step 1: Create docker network -  As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate. Run the following command:
+  - Step 1: Create a docker network -  As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate.
 ```
-docker network create shared-network
+docker network create your-network
 ```
-  - Step 2: Build and run Dux Manager - Link for : https://github.com/FPetronilho/dux-manager
-  - Step 3: Configure the Dux Manager Service - Ensure application.yaml is updated to work on the same network inside docker:
+  - Step 2: Set environment variables in .env file. Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
  ```
  http:
    url:
      dux-manager: http://dux-manager:8080/dux-manager/api/v1
  ```
- - Step 4: Build the Docker Image - Run the following command to build the Docker image:
+ - Step 3: Build and run with Docker compose
  ```
- docker-compose up --build
- ```
- 
-  - Step 5: Start the Containers - Start the containers using the following command:
- ```
- docker-compose up
- ```
- 
- The book-manager service will be accessible at http://localhost:8081.
+ cd resources/docker
+ docker-compose up -d
+ ``` 
+ The book-manager service will be accessible at https://localhost:8444.
+
+## Authentication
+This application uses OAuth 2.0 with JWT for authentication and authorization. To access the protected endpoints, you must include a valid JWT token in the Authorization header:
+```
+Authorization: Bearer <your_jwt_token>
+```
  
 ## Error Handling
 
@@ -162,10 +209,17 @@ The service provides structured error responses with the following format:
 ```
 
 Common error codes:
-- `E-001`: Internal server error
 - `E-002`: Resource not found
 - `E-003`: Resource already exists
 - `E-007`: Parameter validation error
+
+## Validation
+
+The service includes comprehensive validation for all inputs:
+- Book title, author and genre validation
+- ISBN format validation
+- Date format validation
+- Query parameter validation
 
 ## Integration with DuxManager
 
@@ -175,60 +229,13 @@ The Book Manager service integrates with DuxManager for asset tracking. Each boo
 - `permissionPolicy`: "owner"
 - `artifactInformation`: Contains group, artifact, and version details
 
-## Validation
+## Next Features 
 
-The service includes comprehensive validation for all inputs:
-- Book title and author validation
-- ISBN format validation
-- Date format validation
-- Query parameter validation
-
-## Development
-
-### Tech Stack
-
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- Jakarta Validation
-- Feign Client
-- Lombok
-- MapStruct
-- PostgreSQL
-- Maven
-- Docker
-- OAuth2/JWT authentication
-- Swagger documentation
-- HTTPS enabled via SSL certificates
-
-### Project Structure
-
-```
-com.tracktainment.bookmanager
-├── api                    # API interfaces
-├── client                 # External service clients
-├── config                 # Configuration classes
-├── controller             # REST controllers
-├── dataprovider           # Data provider implementations
-├── domain                 # Domain models
-├── dto                    # Data Transfer Objects
-├── entity                 # JPA entities
-├── exception              # Exception handling
-├── mapper                 # Object mappers
-├── repository             # Data repositories
-├── security               # Security context
-├── usecases               # Business logic implementation
-└── util                   # Utility classes
-```
-
-### Next Features 
-
-- Unit testing;
-- Database encryption;
-- CI/CD pipeline.
+- Database encryption
+- CI/CD pipeline
 
 ## Potential Tracktainment Upgrades
 
-- **Review Microservice**: A microservice to handle reviews of books, games and movies.
-- **Recommendation Microservice**: A microservice to handle books, games and movies recommendations based on what the user has consumed so far.
-- **Notification Microservice** : A microservice to send notifications to users about recommendations.
+- **Review Microservice**: A microservice to handle reviews of books, games and movies
+- **Recommendation Microservice**: A microservice to handle books, games and movies recommendations based on what the user has consumed so far
+- **Notification Microservice** : A microservice to send notifications to users about recommendations

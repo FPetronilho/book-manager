@@ -1,4 +1,4 @@
-package com.tracktainment.bookmanager.security.config;
+package com.tracktainment.bookmanager.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

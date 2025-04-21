@@ -28,6 +28,10 @@ public class BookUpdate {
     @Schema(description = "Author of the book", example = "F. Scott Fitzgerald")
     private String author;
 
+    @Pattern(regexp = Constants.GENRE_REGEX, message = Constants.GENRE_INVALID_MSG)
+    @Schema(description = "Genre of the book", example = "Drama")
+    private String genre;
+
     @Pattern(regexp = Constants.ISBN_REGEX, message = Constants.ISBN_INVALID_MSG)
     @Schema(description = "ISBN of the book", example = "978-3-16-148410-0")
     private String isbn;

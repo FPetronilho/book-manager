@@ -122,7 +122,6 @@ https://localhost:8444/book-manager/api-docs
 ```
 
 ## Data Model
-
 The Book entity has the following attributes:
 
 - `id`: Unique identifier
@@ -137,7 +136,6 @@ The Book entity has the following attributes:
 - `updatedAt`: Last update timestamp
 
 ## Setup and Installation
-
 ### Prerequisites
 
 - Java 17+
@@ -149,16 +147,16 @@ The Book entity has the following attributes:
 ### Local Development
  - Step 1: Clone the repository
 ```
-git clone https://github.com/yourusername/book-manager.git
+git clone https://github.com/FPetronilho/book-manager.git
 cd book-manager
 ```
 - Step 2: Set up the PostgreSQL database - Create a database named 'book-manager'
-- Step 3: Configure application properties Create a .env file to setup environment variables or update book-manager-application/src/main/resources/application-local.yaml.
+- Step 3: Configure application properties - Create a .env file to setup environment variables or update book-manager-application/src/main/resources/application-local.yaml.
 Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
 ```
 http:
   url:
-    dux-manager: http://localhost:8080/dux-manager/api/v1
+    dux-manager: https://localhost:8443/dux-manager/api/v1
 ```
 - Step 4: Build the project
 ```
@@ -170,24 +168,22 @@ java -jar book-manager.jar
 ```
 
 ### Docker Setup
- 
-The book-manager application can now be containerized using Docker. To run the application in Docker, follow these steps:
-  - Step 1: Create a docker network -  As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate.
+- Step 1: Create a docker network -  As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate.
 ```
 docker network create your-network
 ```
-  - Step 2: Set environment variables in .env file. Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
- ```
- http:
-   url:
-     dux-manager: http://dux-manager:8080/dux-manager/api/v1
- ```
- - Step 3: Build and run with Docker compose
- ```
- cd resources/docker
- docker-compose up -d
- ``` 
- The book-manager service will be accessible at https://localhost:8444.
+- Step 2: Set environment variables in .env file - Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
+```
+http:
+ url:
+   dux-manager: https://dux-manager:8443/dux-manager/api/v1
+```
+- Step 3: Build and run with Docker compose
+```
+cd resources/docker
+docker-compose up -d
+``` 
+The book-manager service will be accessible at https://localhost:8444.
 
 ## Authentication
 This application uses OAuth 2.0 with JWT for authentication and authorization. To access the protected endpoints, you must include a valid JWT token in the Authorization header:

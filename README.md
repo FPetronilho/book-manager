@@ -38,13 +38,16 @@ The project follows a clean architecture with clear separation of concerns:
 
 ## Features
 
-- Complete CRUD operations for book entities
-- Advanced filtering and search capabilities
-- Sorting by various book attributes
-- Integration with DuxManager for asset tracking
-- OAuth2 security with JWT
-- Swagger/OpenAPI documentation
-- Comprehensive validation and exception handling
+- Complete CRUD operations for entities;
+- Advanced filtering and search capabilities;
+- Sorting by various attributes;
+- Feign Client Integration with DuxManager for asset tracking;
+- Comprehensive validation and error handling;
+- Design Patterns integration (DTO, Builder, Factory and Code Generation);
+- Docker containerization for deployment;
+- OAuth2/JWT authentication;
+- Swagger documentation;
+- Comprehensive unit testing with JUnit & Mockito with over 85% line coverage.
 
 ## Tech Stack
 
@@ -192,7 +195,6 @@ Authorization: Bearer <your_jwt_token>
 ```
  
 ## Error Handling
-
 The service provides structured error responses with the following format:
 
 ```json
@@ -203,14 +205,12 @@ The service provides structured error responses with the following format:
   "message": "Book your-book-id not found."
 }
 ```
-
 Common error codes:
 - `E-002`: Resource not found
 - `E-003`: Resource already exists
 - `E-007`: Parameter validation error
 
 ## Validation
-
 The service includes comprehensive validation for all inputs:
 - Book title, author and genre validation
 - ISBN format validation
@@ -218,7 +218,6 @@ The service includes comprehensive validation for all inputs:
 - Query parameter validation
 
 ## Integration with DuxManager
-
 The Book Manager service integrates with DuxManager for asset tracking. Each book created in the system is also registered as an asset in DuxManager with the following attributes:
 - `externalId`: Book ID
 - `type`: "book"
@@ -226,12 +225,9 @@ The Book Manager service integrates with DuxManager for asset tracking. Each boo
 - `artifactInformation`: Contains group, artifact, and version details
 
 ## Next Features 
-
-- Database encryption
 - CI/CD pipeline
 
 ## Potential Tracktainment Upgrades
-
 - **Review Microservice**: A microservice to handle reviews of books, games and movies
 - **Recommendation Microservice**: A microservice to handle books, games and movies recommendations based on what the user has consumed so far
 - **Notification Microservice** : A microservice to send notifications to users about recommendations

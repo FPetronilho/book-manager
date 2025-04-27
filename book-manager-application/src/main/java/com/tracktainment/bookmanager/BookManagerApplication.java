@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@SpringBootApplication(scanBasePackages = {"com.tracktainment.bookmanager"})
+@SpringBootApplication(scanBasePackages = {"com.tracktainment.bookmanager", "com.playground"})
 @EnableJpaAuditing
 @EnableFeignClients
 public class BookManagerApplication {

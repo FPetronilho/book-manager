@@ -1,9 +1,8 @@
 # Book Manager Microservice
-
-The Book Manager microservice is part of the Tracktainment application, which is designed to track books, movies, and games consumed by users. This microservice is responsible for managing books and their associated metadata. It integrates with the Dux Manager microservice to manage digital user assets.
+The Book Manager microservice is part of the Tracktainment application, which is designed to track books, movies, and games consumed by users.  
+This microservice is responsible for managing books and their associated metadata. It integrates with the Dux Manager microservice to manage digital user assets.
 
 ## Table of Contents
-
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Features](#features)
@@ -18,18 +17,17 @@ The Book Manager microservice is part of the Tracktainment application, which is
 - [Authentication](#authentication)
 - [Error Handling](#error-handling)
 - [Validation](#validation)
+- [Logging](#logging)
 - [Integration with DuxManager](#integration-with-duxmanager)
 - [Next Features](#next-features)
 - [Potential Tracktainment Upgrades](#potential-tracktainment-upgrades)
 
 ## Overview
-
-Book Manager is a microservice application that provides RESTful APIs for managing books. It follows clean architecture principles with a clear separation of concerns, making it maintainable, testable, and scalable. The application allows users to create, read, update, and delete books, while also integrating with an external system (DUX Manager) for asset management.
+Book Manager is a microservice application that provides RESTful APIs for managing books. It follows clean architecture principles with a clear separation of concerns, making it maintainable, testable, and scalable.  
+The application allows users to create, read, update, and delete books, while also integrating with an external system (DUX Manager) for asset management.
 
 ## Architecture
-
 The project follows a clean architecture with clear separation of concerns:
-
 - **Application Module**: Handles application configuration and properties
 - **Core Module**: Contains business rules, domain models, and use cases
 - **Data Provider SQL Module**: Implementation of persistence layer using JPA/Hibernate
@@ -37,7 +35,6 @@ The project follows a clean architecture with clear separation of concerns:
 - **Entry Point REST Module**: REST API controllers and resources
 
 ## Features
-
 - Complete CRUD operations for entities;
 - Advanced filtering and search capabilities;
 - Sorting by various attributes;
@@ -47,10 +44,12 @@ The project follows a clean architecture with clear separation of concerns:
 - Docker containerization for deployment;
 - OAuth2/JWT authentication;
 - Swagger documentation;
-- Comprehensive unit testing with JUnit & Mockito with over 85% line coverage.
+- Comprehensive unit testing with JUnit & Mockito with over 80% line coverage;
+- Code analysis performed against SonarQube using Jacoco;
+- HTTP requests/responses logging;
+- Traceability, Observability and OpenTelemetry integration using provided logs.
 
 ## Tech Stack
-
 - Java 17
 - Spring Boot 3.3.4
 - Spring Data JPA
@@ -64,7 +63,9 @@ The project follows a clean architecture with clear separation of concerns:
 - Docker
 - Swagger/OpenAPI
 - HTTPS enabled via SSL certificates
+- HTTP request/response logging
 - JUnit 5 & Mockito
+- SonarQube & Jacoco
 
 ## Project Structure
 ```
@@ -105,7 +106,6 @@ book-manager
 ```
 
 ## API Endpoints
-
 | Method |       Endpoint       |       Description       |
 |--------|----------------------|-------------------------|
 | POST   | `/api/v1/books`      | Create a new book       |
@@ -126,7 +126,6 @@ https://localhost:8444/book-manager/api-docs
 
 ## Data Model
 The Book entity has the following attributes:
-
 - `id`: Unique identifier
 - `title`: Book title
 - `author`: Book author
@@ -140,7 +139,6 @@ The Book entity has the following attributes:
 
 ## Setup and Installation
 ### Prerequisites
-
 - Java 17+
 - Maven 3.6+
 - PostgreSQL 15+
@@ -148,40 +146,44 @@ The Book entity has the following attributes:
 - Docker (optional, for containerized deployment)
 
 ### Local Development
- - Step 1: Clone the repository
+ - Step 1 - Clone the repository
 ```
 git clone https://github.com/FPetronilho/book-manager.git
 cd book-manager
 ```
-- Step 2: Set up the PostgreSQL database - Create a database named 'book-manager'
-- Step 3: Configure application properties - Create a .env file to setup environment variables or update book-manager-application/src/main/resources/application-local.yaml.
+- Step 2 - Set up the PostgreSQL database:  
+Create a database named 'book-manager'
+- Step 3 - Configure application properties:  
+Create a .env file to setup environment variables or update book-manager-application/src/main/resources/application-local.yaml.  
 Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
 ```
 http:
   url:
     dux-manager: https://localhost:8443/dux-manager/api/v1
 ```
-- Step 4: Build the project
+- Step 4 - Build the project
 ```
 mvn clean install
 ```
-- Step 5: Run the application
+- Step 5 - Run the application
 ```bash
 java -jar book-manager.jar
 ```
 
 ### Docker Setup
-- Step 1: Create a docker network -  As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate.
+- Step 1 - Create a docker network:  
+As Book Manager depends that Dux Manager is up and running, create a docker network so that both microservices can communicate.
 ```
 docker network create your-network
 ```
-- Step 2: Set environment variables in .env file - Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
+- Step 2 - Set environment variables in .env file:  
+Ensure that the http.url.dux-manager property in the application.yaml file points to the correct URL:
 ```
 http:
  url:
    dux-manager: https://dux-manager:8443/dux-manager/api/v1
 ```
-- Step 3: Build and run with Docker compose
+- Step 3 - Build and run with Docker compose
 ```
 cd resources/docker
 docker-compose up -d
@@ -189,14 +191,11 @@ docker-compose up -d
 The book-manager service will be accessible at https://localhost:8444.
 
 ## Authentication
-This application uses OAuth 2.0 with JWT for authentication and authorization. To access the protected endpoints, you must include a valid JWT token in the Authorization header:
-```
-Authorization: Bearer <your_jwt_token>
-```
+This application uses OAuth 2.0 with JWT for authentication and authorization.  
+This capability is provided using auth8 microservice from Ricardo Petronilho (https://github.com/RicardoPetronilho98/auth8/tree/develop). Please refer to documentation in order to setup the service.
  
 ## Error Handling
 The service provides structured error responses with the following format:
-
 ```json
 {
   "code": "E-002",
@@ -216,6 +215,18 @@ The service includes comprehensive validation for all inputs:
 - ISBN format validation
 - Date format validation
 - Query parameter validation
+
+## Logging
+- Enhanced Traceability:
+  - Automatic injection of transactionId, traceId, and log point into every log event.
+  - Capture execution timestamps and durations with nanosecond precision.
+- Observability-Ready:
+  - Structured logs for seamless integration into ELK, Grafana Loki, AWS CloudWatch, and OpenTelemetry.
+  - Designed for correlation of distributed logs across microservices.
+- Mask sensitive fields (e.g., email, tokens, phone numbers) dynamically.
+- Hide fields completely from logs when needed.
+
+This capability is provided using a logging library from Ricardo Petronilho (https://github.com/RicardoPetronilho98/logging). Please refer to documentation in order to setup the library.
 
 ## Integration with DuxManager
 The Book Manager service integrates with DuxManager for asset tracking. Each book created in the system is also registered as an asset in DuxManager with the following attributes:
